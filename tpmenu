@@ -2,7 +2,7 @@
 
 PASS_PATH=${PASSWORD_STORE_DIR-~/.password-store}
 password_files=$(
-    find /home/adrian/.password-store/ -name \*.gpg |
+    find $PASS_PATH -name \*.gpg |
     sed "s:$PASS_PATH::g" |
     sed 's:.gpg::g'
 )
