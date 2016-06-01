@@ -1,0 +1,12 @@
+# tpemnu
+
+tpm [0] and dmenu [1] password manager.
+
+## Installation
+
+You need to install and configure tpm [0] and dmenu [1]. After that copy tpmenu 
+file to your PATH directory.
+
+## Usage
+
+Spawn tpmenu command

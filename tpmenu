@@ -1,0 +1,18 @@
+#!/bin/sh
+
+PASS_PATH=${PASSWORD_STORE_DIR-~/.password-store}
+password_files=$(
+    find /home/adrian/.password-store/ -name \*.gpg |
+    sed "s:$PASS_PATH::g" |
+    sed 's:.gpg::g'
+)
+
+password=$(printf '%s\n' "${password_files}" | dmenu "$@")
+
+if test -z $password; then
+    exit
+fi
+
+tpm show "$password" |
+    tr -d '\n' |
+    xclip -selection clipboard
